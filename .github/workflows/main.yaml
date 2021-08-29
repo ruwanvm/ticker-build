@@ -2,7 +2,7 @@ name: UATS ticker docker build workflow
 on: [push]
 jobs:
   build:
-    name: Build UATS microservice
+    name: Build Ticker microservice image
     runs-on: ubuntu-20.04
     timeout-minutes: 5
     env:
@@ -22,7 +22,6 @@ jobs:
           aws-region: ${{ secrets.ECR_AWS_REGION }}
       - name: Download Artifacts to Repocitory
         run: |
-          aws s3 ls $BUILD_ARTIFACT_LOACTION/$BUILD_ARTIFACT_TYPE/
           aws s3 cp "$BUILD_ARTIFACT_LOACTION/$BUILD_ARTIFACT_TYPE/$BUILD_VERSION/ticker.tar.gz" artifacts.tar.gz
           tar -xvzf artifacts.tar.gz
           rm -f artifacts.tar.gz

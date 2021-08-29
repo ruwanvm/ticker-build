@@ -2,7 +2,6 @@ FROM amazoncorretto:8u302-alpine
 WORKDIR /app
 COPY ./lib/* ./lib/
 COPY ./app-*.jar ./app.jar
-COPY ./symbols.csv ./symbols.csv
 COPY ./libthreadId.so ./libthreadId.so
 COPY ./config/app-config.yml ./conf/app-config.yml
 RUN apk --no-cache --update add libgcc libstdc++
