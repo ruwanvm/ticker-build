@@ -1,0 +1,45 @@
+reactor:
+  servicePort: 7778
+  membershipPort: 4801
+  seeds:
+    - seed-service:4801
+
+entityProvider: com.ustack.service.dynamodb.DynamodbEntityProvider
+leadershipProvider: com.ustack.service.dynamodb.DynamodbLeadershipProvider
+keyRoutingProvider: com.ustack.service.dynamodb.DynamodbKeyRoutingProvider
+statsEnabled: true
+
+zones:
+  ticker_v2:
+    webApi:
+      host: 0.0.0.0
+      port: 8085
+    websocket:
+      host: 0.0.0.0
+      port: 8089
+    functions:
+      - name: StreamService
+        func: com.ustack.service.core.stream.StreamService
+        router: NODE_ID
+      - name: PrevCloseUpdatedService
+        func: com.ust.ticker.functions.PrevCloseUpdatedService
+        router: LEADER_BASED
+env:
+  DYNAMIC_SUBSCRIPTION: false
+  THREADS: 2
+  t_0: s_0
+  t_1: s_1
+  STAT_CALCULATION_INTERVAL: 1
+  STAT_SEND_INTERVAL: 5
+  STAT_WRITE_INTERVAL: 5
+  INFLUX_ENABLED: false
+  TICKER_STATS_TABLE: tickerStats
+  SYMBOL_STATS_TABLE: symbolStats
+  CHANNEL_STATS_TABLE: channelStats
+  TICKER_LOGS_TABLE: tickerLogs
+  SYMBOL_STATE_DATA_TABLE: symbolStates
+  INFLUX_LOGS_FOLDER: influxdb
+  CONTROL_TABLE: control
+  DEFAULT_PERSISTED_TABLE: default_persisted
+  DEFAULT_STREAM_TABLE: default_stream
+  DEFAULT_SNAPSHOT_TABLE: default_snapshot
