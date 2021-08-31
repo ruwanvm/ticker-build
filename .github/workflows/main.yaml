@@ -1,4 +1,4 @@
-name: UATS ticker docker build workflow
+name: Ticker docker build workflow
 on: [push]
 jobs:
   build:
