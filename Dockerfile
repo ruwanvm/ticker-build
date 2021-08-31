@@ -1,4 +1,5 @@
 FROM amazoncorretto:8u302-alpine
+USER root
 WORKDIR /app
 COPY ./lib/* ./lib/
 COPY ./app-*.jar ./app.jar
