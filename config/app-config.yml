@@ -25,6 +25,9 @@ zones:
         func: com.ust.ticker.functions.PrevCloseUpdatedService
         router: LEADER_BASED
 env:
+  ACTIV_USERNAME: usts1000-user07
+  ACTIV_PASSWORD: usts-u7
+  ACTIV_URL: 199.47.167.100:9005/ContentGateway:Service?rxCompression=Rdc&amp;noHeartbeatBreakInterval=60
   DYNAMIC_SUBSCRIPTION: false
   THREADS: 2
   t_0: s_0
@@ -32,6 +35,10 @@ env:
   STAT_CALCULATION_INTERVAL: 1
   STAT_SEND_INTERVAL: 5
   STAT_WRITE_INTERVAL: 5
+  INFLUX_HOST: http://127.0.0.1:8086
+  INFLUX_USERNAME: root
+  INFLUX_PASSWORD: root
+  INFLUX_DATABASE: ticker
   INFLUX_ENABLED: false
   TICKER_STATS_TABLE: tickerStats
   SYMBOL_STATS_TABLE: symbolStats
@@ -39,7 +46,11 @@ env:
   TICKER_LOGS_TABLE: tickerLogs
   SYMBOL_STATE_DATA_TABLE: symbolStates
   INFLUX_LOGS_FOLDER: influxdb
+  AWS_REGION: us-east-1
   CONTROL_TABLE: control
   DEFAULT_PERSISTED_TABLE: default_persisted
   DEFAULT_STREAM_TABLE: default_stream
   DEFAULT_SNAPSHOT_TABLE: default_snapshot
+  ENV_NAME: gajaba_v2
+  SYMBOLS_SOURCE: file
+  SYMBOLS_FILE_PATH: symbols.csv
